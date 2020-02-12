@@ -1,1 +1,2 @@
 print("fuuska")
+print("shortcut")
