@@ -1,2 +1,0 @@
-print("fuuska")
-print("shortcut")
