@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Page</title>
+</head>
+
+<body>
+
+    <h1 style="margin-left: 500px;">welcome to my chatroom</h1>
+    <br><br><br><br><br>
+    <div class="login-chat-home">
+            <p >جهت ورود به حسین چت، نام کاربری و رمز عبور خود را وارد کنید</p><br>
+
+            <form action='massege/' method="post">
+                    <div class="username-field">
+                        <input type="text" name="user">
+                        <label for="user">نام کاربری</label><br><br>
+
+                        <input type="password" name="pass">
+                        <label for="pass">رمز عبور</label><br><br>
+                        
+
+                   
+
+                <label class="member-login-checkbox">
+                <input type="checkbox" onchange="checkCheckBox()" name="login_member" value="ورود با عضویت">
+                <span>ورود با عضویت</span><br><br>
+                </label>
+
+                   <a style=" padding-right: 40px;" href="http://127.0.0.1:8000/users/signup/"> عضویت </a>
+
+                
+                <input style="margin-right:80px; " type="submit" value="ورود">
+
+
+                    </div>                
+
+            </form><br><br>
+
+
+        </div>
+
+     
+    <div>
+            <!-- list karbara samte rast  -->
+            <ol>
+                {%for i in users%}
+                  <li>{{i.firstname}} {{i.lastname}} {{i.gmailname}}</li>
+                {%endfor%}
+            </ol>
+
+    </div>    
+    
+    <div >
+
+
+   
+
+    </div>
+
+    <img style="width: 1450px; height: 1100px; " src="https://cdn.mos.cms.futurecdn.net/VBTsDswJ3MPxTyZ43ZNXkJ-1024-80.jpg" title="photo by king hossein" >  <br> <br> 
+
+
+<style>
+
+.login-chat-home{ margin-right:650px; text-align: right; border: 1px solid #f1f1f1; }
+.username-field{border: 1px solid #f1f1f1; }
+
+
+
+</style>
+
+</body>
+</html>
