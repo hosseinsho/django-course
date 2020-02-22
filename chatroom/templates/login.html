@@ -12,21 +12,19 @@
 </head>
 <body>
 
-    <form action="/users/signup/add" style="border:1px solid #ccc">
+    <form action=" " method="POST" style="border:1px solid #ccc">{% csrf_token %}
         <div class="container">
           <h1>Login</h1>
           <p>Please log to your account.</p>
           <hr>
       
-          <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required>
+          <label for="username"><b>username</b></label>
+          <input type="text" placeholder="username" name="username" required>
       
           <label for="psw"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="psw" required>
       
-          <label for="psw-repeat"><b>Repeat Password</b></label>
-          <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-      
+
           <label>
             <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
           </label>
@@ -39,6 +37,10 @@
           </div>
         </div>
       </form>
+
+        {%if username_valied%}
+        <p>username or password is false try again</p>
+        {%endif%}
 
     <style>
     * {box-sizing: border-box}

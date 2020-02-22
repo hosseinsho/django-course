@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat page</title>
+</head>
+<body>
+    <div>
+
+        <h2>user list</h2><br>
+        <p>user DB</p>
+
+        <ul>
+        
+            {%for u in users1%}
+            <li>
+                
+               <a href="/message/{{u.id}}"> {{u.get_fullname}} </a>
+              
+            </li><br>
+            {%endfor%}
+        </ul>
+
+<br><br>
+        <p>user jango</p>
+        <ul>
+            
+            {%for u in users2%}
+            <li>
+                <b>first_name:</b>
+                {{u.first_name}}
+               <br><b>lastname:</b>{{u.last_name}}
+            
+            </li><br>
+            {%endfor%}
+        </ul>
+    </div>
+    <div>
+        <h2>Message List</h2>
+    </div>
+    <div>
+        <form method="POST" action="add">{% csrf_token %}
+            <textarea  name="text" rows="3" cols="50"></textarea>
+            <input type="hidden" name="receiver" value="{{receiver}}">
+            <input type="submit" value="Send Message">
+
+
+
+        
+        </form>
+
+    </div>
+</body>
+</html>

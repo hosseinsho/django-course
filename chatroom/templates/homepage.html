@@ -11,11 +11,13 @@
 <body>
 
     <h1 style="margin-left: 500px;">welcome to my chatroom</h1>
+    <a href="http://127.0.0.1:8000/admin">admin page</a><br>
+    <a href="http://127.0.0.1:8000/users/list">users list</a>
     <br><br><br><br><br>
     <div class="login-chat-home">
             <p >جهت ورود به حسین چت، نام کاربری و رمز عبور خود را وارد کنید</p><br>
-
-            <form action='massege/' method="post">
+           
+            <form action='message/' method="post">{% csrf_token %}
                     <div class="username-field">
                         <input type="text" name="user">
                         <label for="user">نام کاربری</label><br><br>
@@ -31,17 +33,21 @@
                 <span>ورود با عضویت</span><br><br>
                 </label>
 
-                   <a style=" padding-right: 40px;" href="http://127.0.0.1:8000/users/signup/"> عضویت </a>
-
+             <a style=" padding-right: 40px; border: 2px solid black;text-decoration: none;" href="http://127.0.0.1:8000/users/signup/"> عضویت </a> 
+                
                 
                 <input style="margin-right:80px; " type="submit" value="ورود">
+               
 
+                                  
 
-                    </div>                
+            </form>
 
-            </form><br><br>
+            <!-- <form action='http://127.0.0.1:8000/users/signup/' method="POST">{% csrf_token %}
+                <button>عضویت</button>
+            </form> -->
 
-
+        </div> 
         </div>
 
      
