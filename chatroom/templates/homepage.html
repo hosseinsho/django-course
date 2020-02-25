@@ -11,13 +11,13 @@
 <body>
 
     <h1 style="margin-left: 500px;">welcome to my chatroom</h1>
-    <a href="http://127.0.0.1:8000/admin">admin page</a><br>
-    <a href="http://127.0.0.1:8000/users/list">users list</a>
+    <a href="http://127.0.0.1:8000/admin">admin page</a><br><br>
+    <a href="http://127.0.0.1:8000/users/login">Login page</a>
     <br><br><br><br><br>
     <div class="login-chat-home">
             <p >جهت ورود به حسین چت، نام کاربری و رمز عبور خود را وارد کنید</p><br>
            
-            <form action='message/' method="post">{% csrf_token %}
+            <form action='message/' method="POST">{% csrf_token %}
                     <div class="username-field">
                         <input type="text" name="user">
                         <label for="user">نام کاربری</label><br><br>

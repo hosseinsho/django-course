@@ -14,6 +14,7 @@ def signup(request):
             user1.save()
         except:
             return HttpResponse("we have this username",status=400)
+
         user2 = Users.objects.create(username=request.POST['user'], email_address=request.POST['email'],
         password=request.POST['psw'],first_name=request.POST['first'],last_name=request.POST['last'])
         try:
@@ -50,15 +51,17 @@ def login(request):
         #ba pass adad moshkel dare bayad bebinam vase user jango cheoori mishe login karad
     elif request.method=='POST':
         u= Users.objects.filter(username=request.POST['username']
-        ,password=request.POST['psw']
-        
-        )
-        #print(u)
+        ,password=request.POST['psw'] )
+
+
+        print("login OK",u)
         if u:
             u[0].token = uuid.uuid4()
             u[0].save()
-            return redirect('/message/')
-
+            print("token saved")
+            response= redirect('/message/1')
+            response.set_cookie('token',u[0].token)
+            return response
         else:
             return redirect('/users/login/')
 

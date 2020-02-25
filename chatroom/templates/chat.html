@@ -16,29 +16,45 @@
             {%for u in users1%}
             <li>
                 
-               <a href="/message/{{u.id}}"> {{u.get_fullname}} </a>
+               <a href="/message/{{u.id}}"> 
+                {%if u.id == self_ %}
+                    Saved massege
+                {%else%}
+                    {{u.get_fullname}}
+                {%endif%}
+
+                </a>
               
             </li><br>
             {%endfor%}
         </ul>
 
 <br><br>
-        <p>user jango</p>
-        <ul>
-            
-            {%for u in users2%}
-            <li>
-                <b>first_name:</b>
-                {{u.first_name}}
-               <br><b>lastname:</b>{{u.last_name}}
-            
-            </li><br>
-            {%endfor%}
-        </ul>
+        
     </div>
+
     <div>
-        <h2>Message List</h2>
+        <h2> Messages: </h2>    <hr>
+
+        <ul>
+            {% for m in messages %}
+            <li>
+                {%for id, name in Users_name.items %}
+                    {%if m.sender == id %}
+                        {{name}} : {{m.text}}
+                    {%endif%}
+
+                {% endfor %} 
+
+            </li>
+
+            {% endfor %}
+        </ul>
+
+
     </div>
+
+
     <div>
         <form method="POST" action="add">{% csrf_token %}
             <textarea  name="text" rows="3" cols="50"></textarea>
