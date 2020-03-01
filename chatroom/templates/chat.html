@@ -39,13 +39,7 @@
         <ul>
             {% for m in messages %}
             <li>
-                {%for id, name in Users_name.items %}
-                    {%if m.sender == id %}
-                        {{name}} : {{m.text}}
-                    {%endif%}
-
-                {% endfor %} 
-
+                    {{m.sender.first_name}} : {{m.text}}
             </li>
 
             {% endfor %}

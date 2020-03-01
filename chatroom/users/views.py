@@ -59,7 +59,7 @@ def login(request):
             u[0].token = uuid.uuid4()
             u[0].save()
             print("token saved")
-            response= redirect('/message/1')
+            response= redirect('/message/')
             response.set_cookie('token',u[0].token)
             return response
         else:

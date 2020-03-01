@@ -1,84 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home Page</title>
+    <title>test</title>
 </head>
-
 <body>
-
-    <h1 style="margin-left: 500px;">welcome to my chatroom</h1>
-    <a href="http://127.0.0.1:8000/admin">admin page</a><br><br>
-    <a href="http://127.0.0.1:8000/users/login">Login page</a>
-    <br><br><br><br><br>
-    <div class="login-chat-home">
-            <p >جهت ورود به حسین چت، نام کاربری و رمز عبور خود را وارد کنید</p><br>
-           
-            <form action='message/' method="POST">{% csrf_token %}
-                    <div class="username-field">
-                        <input type="text" name="user">
-                        <label for="user">نام کاربری</label><br><br>
-
-                        <input type="password" name="pass">
-                        <label for="pass">رمز عبور</label><br><br>
-                        
-
-                   
-
-                <label class="member-login-checkbox">
-                <input type="checkbox" onchange="checkCheckBox()" name="login_member" value="ورود با عضویت">
-                <span>ورود با عضویت</span><br><br>
-                </label>
-
-             <a style=" padding-right: 40px; border: 2px solid black;text-decoration: none;" href="http://127.0.0.1:8000/users/signup/"> عضویت </a> 
-                
-                
-                <input style="margin-right:80px; " type="submit" value="ورود">
-               
-
-                                  
-
-            </form>
-
-            <!-- <form action='http://127.0.0.1:8000/users/signup/' method="POST">{% csrf_token %}
-                <button>عضویت</button>
-            </form> -->
-
-        </div> 
-        </div>
-
-     
-    <div>
-            <!-- list karbara samte rast  -->
-            <ol>
-                {%for i in users%}
-                  <li>{{i.firstname}} {{i.lastname}} {{i.gmailname}}</li>
-                {%endfor%}
-            </ol>
-
-    </div>    
     
-    <div >
+    <tr class="special">
+        <td> sama</td>
+        <td> sama@gmail@.com</td>
+        <td> 1-130-549-5961</td>
+    </tr>
+
+    <tr class="special">
+        <td> ali</td>
+        <td> ali@gmail@.com</td>
+        <td> 1-520-467-8561</td>
+    </tr>
+
+    <tr class="special">
+        <td> hasan</td>
+        <td> hasan@gmail@.com</td>
+        <td> 1-678-127-4214 </td>
+    </tr>
+
+    <tr class="special">
+        <td> mamad</td>
+        <td> mamad@gmail@.com</td>
+        <td> 1-520-124-5231 </td>
+    </tr>
 
 
-   
+   <div class="table">
+    <table>
 
-    </div>
+        <tr>
+            <td> masane</td>
+            <td> masane@gmail@.com</td>
+            <td> 1-530-144-5141</td>
+        </tr>
+        
+        <tr>
+            <td> gholi</td>
+            <td> gholi@gmail@.com</td>
+            <td> 1-213-514-5214</td>
+        </tr>
+        
+        <tr>
+            <td> xenon</td>
+            <td> xenon@gmail@.com</td>
+            <td> 1-131-421-3421</td>
+        </tr>
+        
+        <tr>
+            <td> maamad</td>
+            <td> maamad@gmail@.com</td>
+            <td> 29956156</td>
+        </tr>
 
-    <img style="width: 1450px; height: 1100px; " src="https://cdn.mos.cms.futurecdn.net/VBTsDswJ3MPxTyZ43ZNXkJ-1024-80.jpg" title="photo by king hossein" >  <br> <br> 
+    </table>
 
+   </div>
 
-<style>
-
-.login-chat-home{ margin-right:650px; text-align: right; border: 1px solid #f1f1f1; }
-.username-field{border: 1px solid #f1f1f1; }
-
-
-
-</style>
 
 </body>
 </html>
