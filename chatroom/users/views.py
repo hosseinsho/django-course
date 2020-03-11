@@ -1,9 +1,13 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.http import HttpResponse , JsonResponse
 from .models import Users
 from django.contrib.auth.models import User
-import uuid
-# Create your views here.
+from django.contrib.auth import authenticate , login
+
+
+from django.middleware.csrf import CsrfViewMiddleware
+from django.views.decorators.csrf import csrf_protect , csrf_exempt
+
 
 
 def signup(request):
@@ -15,12 +19,6 @@ def signup(request):
         except:
             return HttpResponse("we have this username",status=400)
 
-        user2 = Users.objects.create(username=request.POST['user'], email_address=request.POST['email'],
-        password=request.POST['psw'],first_name=request.POST['first'],last_name=request.POST['last'])
-        try:
-            user2.save()
-        except:
-            return HttpResponse("we have this username",status=400)
 
         return render(request,'signup.html')
 
@@ -36,34 +34,29 @@ def signup(request):
         )
 
 
-def login(request):
-    if request.method=='GET':
 
-        return render(request,'login.html',
-        context={
-            
-          #'username_valied': u[0]
+@csrf_exempt
 
-        }
-        
-        
-        )
-        #ba pass adad moshkel dare bayad bebinam vase user jango cheoori mishe login karad
-    elif request.method=='POST':
-        u= Users.objects.filter(username=request.POST['username']
-        ,password=request.POST['psw'] )
+def login_user(request):
 
+    
+    user = authenticate(
+        request = request,
+        username= request.POST['username'],
+        password = request.POST['password'])
+    
+    if user is not None:
+        login(request, user)
+        return JsonResponse({
 
-        print("login OK",u)
-        if u:
-            u[0].token = uuid.uuid4()
-            u[0].save()
-            print("token saved")
-            response= redirect('/message/')
-            response.set_cookie('token',u[0].token)
-            return response
-        else:
-            return redirect('/users/login/')
+            'message' : 'login successfully'
+ 
+        })
+    
+    else:
 
+        return JsonResponse({
 
-
+            'message' : 'username or password is wrong'
+ 
+        })

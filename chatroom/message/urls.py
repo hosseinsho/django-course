@@ -6,5 +6,6 @@ urlpatterns = [
 path('<int:user_id>', views.chatpage),
 path('', views.chatpage),
 path('add',views.add_message),
+path('list',views.message_list)
 
 ]
